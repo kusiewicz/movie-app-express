@@ -9,7 +9,14 @@ var indexRouter = require("./routes/index");
 var app = express();
 
 const helmet = require("helmet");
-app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "img-src": ["'self'", "https: data:"],
+    },
+  })
+);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -17,7 +24,7 @@ app.set("view engine", "ejs");
 
 app.use(logger("dev"));
 app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 

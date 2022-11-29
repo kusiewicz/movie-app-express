@@ -9,6 +9,7 @@ html {
 
 body {
   padding: 20px;
+  min-height: 100vh;
 }
 
 header {
@@ -44,4 +45,24 @@ header {
   width: 75px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.movies {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.movie-card {
+  width: 200px;
+}
+
+.movie-card__image {
+  height: 100%;
+  width: 100%;
 }
