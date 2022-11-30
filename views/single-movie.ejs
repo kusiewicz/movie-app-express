@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<head>
+    <%- include('head') -%>
+</head>
+<body>
+    <%- include('navbar') -%>
+    <div class="single-movie__wrapper">
+       
+            <h1 class="single-movie__title"><%= movieDetails.title %></h1>
+            <img class="single-movie-card__image" src="<%= imageBaseUrl + movieDetails.poster_path %>" />
+            <p class="single-movie__overview"><%= movieDetails.overview %></p>
+    </div>
+</body>

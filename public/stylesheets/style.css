@@ -66,3 +66,26 @@ header {
   height: 100%;
   width: 100%;
 }
+
+.single-movie__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.single-movie-card__image {
+  width: 150px;
+  height: 220px;
+}
+
+.single-movie__title {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.single-movie__overview {
+  font-size: 16px;
+  text-align: center;
+}

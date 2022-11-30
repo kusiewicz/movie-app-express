@@ -10,7 +10,7 @@
 	<section class="movies">
 		<% moviesData.map(function(movie){ %>
 			<div class="movie-card">
-				<img class="movie-card__image" src="<%= imageBaseUrl + movie.backdrop_path %>" />
+				<a href="/movie/<%= movie.id %>"><img class="movie-card__image" src="<%= imageBaseUrl + movie.backdrop_path %>" /></a>
 			</div>
 		  <% }); %>
 	</section>

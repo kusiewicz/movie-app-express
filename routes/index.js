@@ -12,7 +12,6 @@ router.use((req, res, next) => {
   next();
 });
 
-/* GET home page. */
 router.get("/", async function (req, res, next) {
   const popularMovies = await axios.get(popularNow, {
     headers: {
@@ -22,6 +21,22 @@ router.get("/", async function (req, res, next) {
 
   res.render("index", {
     moviesData: popularMovies.data.results,
+  });
+});
+
+router.get("/movie/:id", async (req, res, next) => {
+  const movieId = req.params.id;
+  const thisMovieUrl = `${apiBaseUrl}/movie/${movieId}?api_key=${APIKey}`;
+  const movieDetails = await axios.get(thisMovieUrl, {
+    headers: {
+      "Accept-Encoding": "application/json",
+    },
+  });
+
+  console.log(movieDetails.data);
+
+  res.render("single-movie", {
+    movieDetails: movieDetails.data,
   });
 });
 
