@@ -33,10 +33,24 @@ router.get("/movie/:id", async (req, res, next) => {
     },
   });
 
-  console.log(movieDetails.data);
-
   res.render("single-movie", {
     movieDetails: movieDetails.data,
+  });
+});
+
+router.post("/search", async (req, res, next) => {
+  const searchInput = req.body.movieSearch;
+  const category = req.body.category;
+  const movieUrl = `${apiBaseUrl}/search/${category}?query=${searchInput}&api_key=${APIKey}`;
+
+  const searchedMovies = await axios.get(movieUrl, {
+    headers: {
+      "Accept-Encoding": "application/json",
+    },
+  });
+
+  res.render("index", {
+    moviesData: searchedMovies.data.results,
   });
 });
 

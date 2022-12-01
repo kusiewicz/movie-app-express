@@ -3,12 +3,12 @@
         <h1 class="header navbar__header">The new IMDB</h1>
     </div>
     <nav>
-        <form>
-            <select name="category" id="category" class="navbar__select">
-                <option value="Movie">Movie</option>
-                <option value="Actor">Actor</option>
+        <form action="/search" method="post">
+            <select name="category" id="category" class="navbar__select" name="category">
+                <option value="movie">Movie</option>
+                <option value="actor">Actor</option>
             </select>
-            <input type="text" placeholder="Search.." class="navbar__input"/>
+            <input type="text" placeholder="Search.." class="navbar__input" name="movieSearch" />
             <button type="submit" class="navbar__button">Search</button>
         </form>
     </nav>
